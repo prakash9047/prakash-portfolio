@@ -1,0 +1,559 @@
+<!-- <php
+function send_email_admin($first, $email, $message){	
+	$rdir = str_replace("\\", "/", __DIR__);                    //Root Dir
+require $rdir.'/PHPMailer/src/Exception.php';
+require $rdir.'/PHPMailer/src/PHPMailer.php';
+require $rdir.'/PHPMailer/src/SMTP.php';
+
+
+	$htmlversion= "You have received an email. <br> from: <b>".$email."</b> <br>Customer  Name: <b>".$first."</b> <br> </b> <br> Customer message: <b>".$message."</b> ";
+	$textversion= 'Contact';
+
+  
+	  $mail = new PHPMailer\PHPMailer\PHPMailer();
+	  $mail->IsSMTP(); // enable SMTP
+  
+	  //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+	  $mail->SMTPAuth = true; // authentication enabled
+	  $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+	  $mail->Host = "smtp.gmail.com";
+	  $mail->Port = 465; // or 587
+	  $mail->IsHTML(true);
+	  $mail->Username = "rprak9047@gmail.com.com";
+	  $mail->Password = "";
+	  $mail->SetFrom("rprak9047@gmail.com", "Learned");
+	  $mail->Subject = 'Contact me ';
+$mail->Body    = $htmlversion;
+$mail->AltBody = $textversion;
+	  $mail->AddAddress("rprak9047@gmail.com.com");
+  
+	   if(!$mail->Send()) {
+	       	echo " <script>alert('$mail->ErrorInfo;.');</script>";
+		  echo "Mailer Error: " . $mail->ErrorInfo;
+	   } else {
+		echo " <script>alert('Message sent Successfully!');</script>";
+		  //echo "Message has been sent";
+	   }
+	}
+
+	if(isset($_POST['submit'])){
+		$first=($_POST['first']);
+		$lname=($_POST['lname']);
+		$mail=($_POST['email']);
+		$message=($_POST['message']);
+		$name = $first." ".$lname;
+		$additional=($_POST['additional']);
+		$msg = $message."   additional details: ".$additional;
+		send_email_admin($name, $mail, $msg);
+	}
+
+	if(isset($_POST['feedback'])){
+		$first=($_POST['frst']);
+		$message=($_POST['addtional']);
+		$mail=($_POST['mail']);
+		send_email_admin($first, $mail, $message);
+	}
+		if(isset($_POST['news'])){
+		$mail=($_POST['mail']);
+		send_email_admin('subscribe', $mail, 'newsletter');
+	}
+
+?> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Comaptible" content="IE=edge">
+    <title>Prakash Portfolio</title>
+    <meta name="desciption" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header id="header">
+        <nav>
+         
+            <ul>
+                <li><a href="#about_section">ABOUT</a></li>
+                <li><a href="#portfolio_section">SKILLS</a></li>
+                <li><a href="#team_section">SOCIAL ACCOUNTS</a></li>
+                <li><a href="#services_section">SKILLED IN</a></li>
+                <li><a href="#contactus_section">CONTACT</a></li>
+               
+            </ul>
+			<!--<a class="get-started" href="login.html">Get Started</a>-->
+			<img src="images/icon/menu.png" class="menu" onclick="sideMenu(0)" alt="menu">
+            <!-- <form action="search.php" id="login" class="input-group" method="get">
+                <div class="srch"><input type="text" class="search" placeholder="Search here..." name="search"><input
+                        type="image" style="width: 25px;
+	cursor: pointer;" src="images/icon/search.png" /></div>
+            </form>
+            <a class="get-started" href="login.php">Get Started</a>
+            <img src="images/icon/menu.png" class="menu" onclick="sideMenu(0)" alt="menu"> -->
+        </nav>
+        <div class="head-container">
+            <div class="quote">
+                <!-- <p>Learn anything you want</p> -->
+                <!-- <h1>Learn anything<br> you want</h1>
+				<form action="search.php" id="login" class="input-group"  method="get">
+				<div class="srch"><input type="text" class="search" placeholder="Search here..."name="search"><input type = "image" style="width: 25px;
+	cursor: pointer;" src = "images/icon/search.png"  /> -->
+                <section class="home section" id="home">
+                    <div class="home__container container grid">
+                        <div class="home__content grid">
+                           
+                            <div class="home__img">
+                                <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <mask id="mask0" mask-type="alpha">
+                                        <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                  130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                  97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                  0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                                    </mask>
+                                    <g mask="url(#mask0)">
+                                        <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                  165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                  129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                  -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                                        <image class="home__blob-img" x="2" y="2" xlink:href="img\prakash photo.png" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="home__data">
+                                <h1 class="home__title"> I am Prakash </h1>
+                                <h3 class="home__subtitle"> AI&ML,Full stack developer</h3>
+                                <h5 class="home__description">
+                                    AI & ML student developer with hands-on experience in building machine learning models,<br>
+                                    and full-stack applications. Skilled in integrating AI solutions into web projects for dynamic, user-focused results.
+                                </h5>
+                                
+                                
+
+
+                                </h5>
+                                <a href="#contactus_section" class="button button--flex">Contact me<i
+                                        class="uil uil-message button__icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="side-menu" id="side-menu">
+            <div class="close" onclick="sideMenu(1)"><img src="images/icon/close.png" alt=""></div>
+           
+            <ul>
+                <li><a href="#about_section">ABOUT</a></li>
+                <li><a href="#portfolio_section">SKILLS</a></li>
+                <li><a href="#team_section">SOCIAL ACCOUNTS</a></li>
+                <li><a href="#services_section">SKILLED IN</a></li>
+                <li><a href="#contactus_section">CONTACT</a></li>
+
+            </ul>
+        </div>
+    </header>
+
+
+
+    <!-- ABOUT -->
+    <div class="diffSection" id="about_section">
+        <center>
+            <p style="font-size: 50px; padding: 100px">ABOUT</p>
+        </center>
+        <div class="about-content">
+            <div class="side-image">
+                <img class="sideImage" src="images/extra/e3.jpg">
+            </div>
+            <div class="side-text">
+                <h2></h2>ABOUT ME</h2>
+                <p>
+                    As a student developer in AI & ML and full-stack, I bring a comprehensive skill set that spans from designing and implementing advanced machine learning models to building robust, scalable web applications.<br>
+                    My background in artificial intelligence and machine learning includes hands-on experience with data analysis, model training, and deployment of predictive analytics solutions.<br>
+                    Complementing this, my full-stack development expertise covers both frontend and backend technologies, enabling me to create dynamic, user-centric applications.<br>
+                    I am adept at leveraging modern frameworks and tools to deliver high-quality, performance-optimized software solutions, integrating AI/ML capabilities seamlessly into full-stack environments.
+                </p>
+                
+                <div class="about__info">
+                    <div>
+                        <span class="about__info-title">+2</span>
+                        <span class="about__info-name">Programming <br />
+                            languages</span>
+                    </div>
+                    <div>
+                        <span class="about__info-title">5+</span>
+                        <span class="about__info-name">Completed <br />
+                            project</span>
+                    </div>
+                    <!--<div>-->
+                    <!--    <span class="about__info-title"><a-->
+                    <!--            href="https://github.com/prakash9047" target="_blank"><img-->
+                    <!--                src="images/git.png" /></a></span>-->
+                    <!--    <span class="about__info-name">My Github <br /> </span>-->
+                    <!--</div>-->
+                </div>
+                <div class="about__buttons">
+                    <a download="" href="pdf/resume.pdf" class="button button--flex">Download CV<i
+                            class="uil uil-file-download-alt button__icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PORTFOLIO -->
+    <div class="diffSection" id="portfolio_section">
+        <center>
+            <p style="font-size: 50px; padding: 20px; padding-bottom: 0px;">SKILLS</p>
+        </center>
+        <section class="skills section" id="skills">
+            <!-- <h2 class="section__title">My Technical Level</h2> -->
+            <!-- <span class="section__subtitle">My technical level</span> -->
+            <div class="skills__container container grid">
+                <!-- <div> -->
+                <div class="skills__content skills__open">
+                    <!-- ----------------------------skills-1 -->
+                    <div class="skills__header">
+                        <i class="uil uil-brackets-curly skills__icon"></i>
+                        <div>
+                            <h1 class="skills__title">Frontend developer</h1>
+                            <span class="skills__subtitle">More than 1 year</span>
+                        </div>
+                    </div>
+                    <div class="skills__list grid">
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">HTML</h3>
+                                <span class="skills__number">95%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__html"></span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">CSS</h3>
+                                <span class="skills__number">90%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__css"></span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">Javascript</h3>
+                                <span class="skills__number">80%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__js"></span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">React</h3>
+                                <span class="skills__number">85%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__react"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--==================== SKILLS- 2====================-->
+                </div>
+                <div class="skills__content skills__open">
+                    <div class="skills__header">
+                        <i class="uil uil-server-network skills__icon"></i>
+                        <div>
+                            <h1 class="skills__title">Backend developer</h1>
+                            <span class="skills__subtitle">More than 6 months</span>
+                        </div>
+                    </div>
+                    <div class="skills__list grid">
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">ML</h3>
+                                <span class="skills__number">80%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__nodejs"></span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">MongoDB</h3>
+                                <span class="skills__number">70%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__mongodb"></span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">PHP</h3>
+                                <span class="skills__number">80%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__php"></span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">Python</h3>
+                                <span class="skills__number">60%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__python"></span>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+
+                    <!-- --------------------------------------------------------- -->
+                </div>
+            </div>
+        </section>
+
+        <!-- <div class="content">
+            <p>
+                “Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” “Your
+                attitude, not your aptitude, will determine your altitude.” “If you think education is expensive, try
+                ignorance.” “The only person who is educated is the one who has learned how to learn …and change.”
+            </p>
+        </div> -->
+    </div>
+    <div class="extra">
+        <!--==================== QUALIFICATION ====================-->
+        <section class="qualification section">
+            <h2 class="section__title">Qualification</h2>
+            <span class="section__subtitle">My personal journey</span>
+
+            <div class="qualification__container">
+                <div class="qualification__tabs">
+                    <div class="qualification__button button--flex qualification__active" data-target="#education">
+                        <i class="uil uil-graduation-cap qualification__icon"></i>
+                        Education
+                    </div>
+                </div>
+
+                <div class="qualification__sections">
+                    <!--==================== QUALIFICATION Content 1 ====================-->
+                    <div class="qualification__content qualification__active" data-content id="education">
+                        <!--==================== QUALIFICATION 1 ====================-->
+                        <div class="qualification__data">
+                            <div>
+                                <h3 class="qualification__title">Class-10th(72.60%)</h3>
+                                <span class="qualification__subtitle">HOLY CROSS MATRICULATION SCHOOL</span>
+                                <div class="qualification__calender">
+                                    <i class="uil uil-calendar-alt"> </i>
+                                    2019-2020
+                                </div>
+                            </div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+
+                                <span class="qualification__line"></span>
+                            </div>
+                        </div>
+                        <!--==================== QUALIFICATION 2 ====================-->
+                        <div class="qualification__data">
+                            <div></div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+
+                                <span class="qualification__line"></span>
+                            </div>
+                            <div>
+                                <h3 class="qualification__title">
+                                    Class-12th(84.40%)
+                                </h3>
+                                <span class="qualification__subtitle">HOLY CROSS MATRICULATION SCHOOL</span>
+                                <div class="qualification__calender">
+                                    <i class="uil uil-calendar-alt"> </i>
+                                    2020-2022
+                                </div>
+                            </div>
+                        </div>
+                        <!--==================== QUALIFICATION 3 ====================-->
+
+                        <div class="qualification__data">
+                            <div>
+                                <h3 class="qualification__title">ARTIFICIAL INTELLIGENCE AND DATA SCIENCE </h3>
+                                <span class="qualification__subtitle"> KGISL INSTITUTE OF TECHNOLOGY</span>
+                                <div class="qualification__calender">
+                                    <i class="uil uil-calendar-alt"> </i>
+                                    2022-2026
+                                </div>
+                            </div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+
+                                
+                            </div>
+                        </div>
+                        <!--==================== QUALIFICATION 4 ====================-->
+                
+                    </div>
+
+                    <!-- ---------------------------------------------------------------------work------------------------------------------------------ -->
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <!-- TEAM -->
+    <div class="diffSection" id="team_section">
+        <center>
+            <p style="font-size: 50px; padding-top: 100px; padding-bottom: 60px;">My Social Accounts</p>
+        </center>
+        <div class="totalcard">
+            <div class="card">
+                <center><img src="C:\Users\USER\OneDrive\Desktop\Prakash website\images\creator\LinkedIn-Logo.wine.png"> </center>
+                <center>
+                    <div class="card-title"> LinkedIn Account</div>
+                    <div id="detail">
+                       
+                        <div class="duty"></div>
+                        <a href="https://www.linkedin.com/in/prakash7873/" target="_blank"><button
+                                class="btn-roshan">Connect +</button></a>
+                    </div>
+                </center>
+            </div>
+            <div class="card">
+                <center><img src="images/creator/download.png"></center>
+                <center>
+                    <div class="card-title">Github Account</div>
+                    <div id="detail">
+                        
+                        <div class="duty"></div>
+                        <a href="https://github.com/prakash9047" target="_blank"><button
+                                class="btn-roshan">Connect +</button></a>
+                    </div>
+                </center>
+            </div>
+         
+
+
+    <!-- SERVICES -->
+    <div class="service-swipe">
+        <div class="diffSection" id="services_section">
+            <center>
+                <p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">TECHNICAL SKILLS</p>
+            </center>
+        </div>
+        <a href="#contactus_section">
+            <div class="s-card"><img src="images/icon/computer-courses.png">
+                <p>Frontend Web Developer</p>
+            </div>
+        </a>
+        <a href="#contactus_section">
+            <div class="s-card"><img src="images/icon/brainbooster.png">
+                <p>Backend Web Developer</p>
+            </div>
+        </a>
+        <a href="#contactus_section">
+            <div class="s-card"><img src="images/icon/ful.png">
+                <p>Full Stack Web Developer</p>
+            </div>
+      
+    </div>
+
+    <!-- CONTACT US -->
+    <div class="diffSection" id="contactus_section">
+        <center>
+            <p style="font-size: 50px; padding: 100px"> CONTACT US</p>
+        </center>
+        <div class="csec"></div>
+        <div class="back-contact">
+            <div class="cc">
+                <form action="#" method="post">
+                    <label>First Name <span class="imp">*</span></label><label style="margin-left: 185px">Last Name
+                        <span class="imp">*</span></label><br>
+                    <center>
+                        <input type="text" name="first" style="margin-right: 10px; width: 175px"
+                            required="required"><input type="text" name="lname" style="width: 175px"
+                            required="required"><br>
+                    </center>
+                    <label>Email <span class="imp">*</span></label><br>
+                    <input type="email" name="email" style="width: 100%" required="required"><br>
+                    <label>Message <span class="imp">*</span></label><br>
+                    <input type="text" name="message" style="width: 100%" required="required"><br>
+                    <label>Additional Details</label><br>
+                    <textarea name="additional"></textarea><br>
+                    <button type="submit" name="submit" id="csubmit" value="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="left-col">
+                <!-- Social Media and Logo -->
+                <div class="social-media">
+                    <a href="www.linkedin.com/in/prakash7873">
+                        <img src="C:\Users\USER\OneDrive\Desktop\Prakash website\images\creator\LinkedIn-Logo.wine.png" alt="LinkedIn Logo">
+                    </a>
+                </div>
+                <br><br>
+                <!-- Copyright and Contact Info -->
+                <p class="rights-text">Copyright © 2024 Created By Prakash All Rights Reserved.</p>
+                <br>
+                <p>
+                    <img src="images/icon/location.png" alt="Location Icon">COIMBATORE, TAMILNADU-641034
+                </p>
+                <br>
+                <p>
+                    <img src="images/icon/phone.png" alt="Phone Icon"> +91-7708743543
+                    <br>
+                    <img src="images/icon/mail.png" alt="Mail Icon">&nbsp; rprak9047@gmail.com.com
+                </p>
+            </div>
+        </div>
+
+        </footer>
+    </div>
+</body>
+
+</html>
